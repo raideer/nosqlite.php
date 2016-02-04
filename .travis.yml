@@ -9,7 +9,7 @@ env:
   - DB=sqlite
 
 before_script:
-  - composer install --dev --no-interaction --prefer-source
+  - composer install --no-interaction --prefer-source
 
 script:
   - make cs
