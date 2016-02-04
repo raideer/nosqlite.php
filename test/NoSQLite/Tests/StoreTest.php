@@ -184,6 +184,9 @@ class StoreTest extends \PHPUnit_Framework_TestCase
         return array(
             array('key', 'value'),
             array('0', 'value'),
+            array('1', 1234),
+            array('2', 12.34),
+            array('3', null),
         );
     }
 
@@ -195,7 +198,10 @@ class StoreTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(0, 'value'),
-            array('key', 1),
+            array('key', array()),
+            array('foo', false),
+            array('bar', (object) array()),
+            array('foobar', function(){}),
         );
     }
 
