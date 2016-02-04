@@ -128,8 +128,8 @@ class Store implements \Iterator, \Countable
             throw new \InvalidArgumentException('Value type ['.gettype($value).'] not allowed');
         }
 
-        if($value !== null){
-          $value = strval($value);
+        if ($value !== null) {
+            $value = strval($value);
         }
 
         $queryString = 'REPLACE INTO ' . $this->name . ' VALUES (:key, :value);';
