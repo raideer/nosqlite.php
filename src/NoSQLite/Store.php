@@ -124,8 +124,12 @@ class Store implements \Iterator, \Countable
             throw new \InvalidArgumentException('Expected string as key');
         }
 
-        if (!is_string($value)) {
-            throw new \InvalidArgumentException('Expected string as value');
+        if (!(is_string($value) || is_null($value) || is_scalar($value)) || is_bool($value)) {
+            throw new \InvalidArgumentException('Value type ['.gettype($value).'] not allowed');
+        }
+
+        if($value !== null){
+          $value = strval($value);
         }
 
         $queryString = 'REPLACE INTO ' . $this->name . ' VALUES (:key, :value);';
